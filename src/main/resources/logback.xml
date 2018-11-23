@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration>
+    <!-- APPENDERS LIST -->
+    <appender name="consoleAppender" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>[%d] %-5p- %m%n</pattern>
+        </encoder>
+    </appender>
+    <appender name="asyncConsoleAppender" class="ch.qos.logback.classic.AsyncAppender">
+        <queueSize>300</queueSize>
+        <appender-ref ref="consoleAppender"/>
+    </appender>
+
+    <appender name="defaulAppender" class="ch.qos.logback.core.FileAppender">
+        <file>log/everything.log</file>
+        <append>false</append>
+        <encoder>
+            <pattern>[%d] %-5p- %m%n</pattern>
+        </encoder>
+    </appender>
+    <appender name="asyncDefaulAppender" class="ch.qos.logback.classic.AsyncAppender">
+        <queueSize>300</queueSize>
+        <appender-ref ref="defaulAppender"/>
+    </appender>
+    <!-- LOGGER LIST -->
+    <root level="DEBUG">
+        <appender-ref ref="asyncDefaulAppender"/>
+        <appender-ref ref="asyncConsoleAppender"/>
+    </root>
+</configuration>
