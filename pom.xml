@@ -84,11 +84,6 @@
                         <version>${version.junit.jupiter}</version>
                     </dependency>
                 </dependencies>
-                <configuration>
-                    <systemProperties>
-                        <kubernetes.auth.tryKubeConfig>false</kubernetes.auth.tryKubeConfig>
-                    </systemProperties>
-                </configuration>
             </plugin>
         </plugins>
     </build>
